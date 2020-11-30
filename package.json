@@ -21,6 +21,7 @@
         "gulp-clean-css": "^4.3.0",
         "gulp-concat": "^2.6.1",
         "gulp-concat-css": "^3.1.0",
+        "gulp-file-include": "^2.2.2",
         "gulp-html-replace": "^1.6.2",
         "gulp-htmlmin": "^5.0.1",
         "gulp-imagemin": "^7.1.0",

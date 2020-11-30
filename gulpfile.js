@@ -8,6 +8,7 @@ var concatCss = require('gulp-concat-css');
 const purgecss = require('gulp-purgecss');
 var htmlmin = require('gulp-htmlmin');
 var htmlreplace = require('gulp-html-replace');
+const fileinclude = require('gulp-file-include');
 const imagemin = require('gulp-imagemin');
 
 var fs = require('fs');
@@ -77,15 +78,21 @@ gulp.task('js', () => {
 });
 
 
-gulp.task('html', () => {
+gulp.task('html', async () => {
     getVersion().then((v) => {
         return gulp.src(pathsHTML.source)
+            .pipe(fileinclude({
+                prefix: '@@',
+                basepath: 'partials'
+            }))
             .pipe(htmlreplace({
                 'css': 'dist/bundle.css?v=' + v,
                 'js': 'dist/scripts.js?v=' + v
             }))
 
-            .pipe(htmlmin({ collapseWhitespace: true }))
+            .pipe(htmlmin({
+                collapseWhitespace: true
+            }))
             .pipe(gulp.dest(pathsHTML.destination));
 
     }).catch((reject) => {
@@ -100,4 +107,3 @@ gulp.task('img', () => {
         .pipe(imagemin())
         .pipe(gulp.dest(pathsImgs.destination));
 });
-

@@ -1,0 +1,12 @@
+<!doctype html><html><head><title>Lagunite</title><!-- META --><meta charset="utf-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><link rel="icon" type="image/png" href="img/lagunite_iso_mini.png"><link rel="stylesheet" href="dist/bundle.css?v=1.12"><script src="dist/scripts.js?v=1.12"></script><script>window.addEventListener("load", function() {
+            document.getElementById('spinner').classList.add('hidden');
+        });</script></head><body class=""><div class="hidden xhidden dhidden"></div><div class="loading hidden" id="spinner"><div class="sk-chase"><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div></div><h2>Loading...</h2></div><section class="col-row vh100"><div class="w100"><img src="img/lagunite.png" class="maxw7 xmaxvw70"><div class="separator-h-s"></div><h2>Frontend Framework</h2><h3>Code made for be edited</h3><div class="separator-h"></div><span id="version">.</span><div class="separator-h"></div><div class="row"><a href="https://github.com/arielivandiaz/lagunite"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png" style="width: 100px"></a></div><div class="separator-h-l"></div></div></section><script>fetch('https://raw.githubusercontent.com/arielivandiaz/lagunite/master/version/version.json').then(function(response) {
+                if (response.ok) {
+                    response.json().then(data => {
+                        document.getElementById("version").textContent = "v." + data.version + "." + data.rev + " - 2020";
+                    });
+                }
+            })
+            .catch(function(error) {
+                console.log('Hubo un problema con la petición Fetch:' + error.message);
+            });</script></body></html>
