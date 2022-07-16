@@ -1,86 +1,86 @@
 /* show(id)-> Remove "hidden" class to the element by id */
-function show(id) {
-    var x = document.getElementById(id);
+const show = (id) => {
+    let x = document.getElementById(id);
     if (x.classList.contains("hidden"))
         x.classList.remove("hidden");
 }
 /* hidde(id)-> Add "hidden" class to the element by id */
-function hidde(id) {
+const hidde = (id) => {
     document.getElementById(id).classList.add("hidden");
 }
 /* toggle(id)-> Toggle "hidden" class to the element by id */
-function toggle(id) {
+const toggle = (id) => {
     document.getElementById(id).classList.toggle("hidden");
 }
 
 /* hiddeAfter(element,time )-> Add "hidden" class to the element by id 
  *  after t (ms)
  */
-function hiddeAfter(id, t) {
-    var e = document.getElementById(id);
-    setTimeout(function () {
+const hiddeAfter = (id, t) => {
+    let e = document.getElementById(id);
+    setTimeout( () => {
         e.classList.add("hidden");
     }, t, e);
 }
 
 /* addClass(id,c)-> Add class "c" to the element by id */
-function addClass(id, c) {
-    var x = document.getElementById(id);
+const addClass = (id, c) => {
+    let x = document.getElementById(id);
     if (!x.classList.contains(c))
         x.classList.add(c);
 }
 /* removeClass(id,c)-> Remove class "c" to the element by id */
-function removeClass(id, c) {
-    var x = document.getElementById(id);
+const removeClass = (id, c) => {
+    let x = document.getElementById(id);
     if (x.classList.contains(c))
         x.classList.remove(c);
 }
 
 
 /* addClass(id,c,t)-> Add class "c" after "t" ms to the element by id */
-function addClassAfter(id, c) {
-    var x = document.getElementById(id);
+const addClassAfter = (id, c) => {
+    let x = document.getElementById(id);
     if (!x.classList.contains(c))
-        setTimeout(function () {
+        setTimeout( () => {
             x.classList.add(c);
         }, t, x, c);
 
 }
 /* removeClass(id,c)-> Remove class "c"  after "t" msto the element by id */
-function removeClassAfter(id, c, t) {
-    var x = document.getElementById(id);
+const removeClassAfter = (id, c, t) => {
+    let x = document.getElementById(id);
     if (x.classList.contains(c))
-         setTimeout(function () {
+         setTimeout( () => {
             x.classList.remove(c);
         }, t, x, c);
 }
 /* toggleClass(id,c)-> Toggle class "c" to the element by id */
-function toggleClass(id, c) {
-    var x = document.getElementById(id);
+const toggleClass = (id, c) => {
+    let x = document.getElementById(id);
     x.classList.toggle(c);
 }
 
 /* updateInput(id,val)-> Update value of the element by id */
-function updateInput(id, val) {
+const updateInput = (id, val) => {
     document.getElementById(id).value = val;
 }
 
 
-function updateText(id, text) {
+const updateText = (id, text) => {
     document.getElementById(id).textContent = text;
 }
 
 
 /* Aside Menu   */
-function showMenu() {
-    var m = document.getElementById("menuBurger");
+const showMenu = () => {
+    let m = document.getElementById("menuBurger");
     m.classList.remove("scale-out-tr");
     m.classList.add("scale-in-tr");
     m.classList.remove("hidden");
 }
 
-function hideMenu() {
-    var m = document.getElementById("menuBurger");
+const hideMenu = () => {
+    let m = document.getElementById("menuBurger");
     m.classList.remove("scale-in-tr");
     m.classList.add("scale-out-tr");
     hiddeAfter(m, 300);
@@ -88,8 +88,8 @@ function hideMenu() {
 
 
 /* Disappearing Modal */
-function disappearing(id) {
-    var m = document.getElementById(id);
+const disappearing = (id) => {
+    let m = document.getElementById(id);
     show(id);
     addClass(id, 'disappearing');
     hiddeAfter(m, 3000);
@@ -97,10 +97,10 @@ function disappearing(id) {
 
 
 /* Images carrousel */
-function carrousel(id) {
-    var c = document.getElementById('carrousel').children;
-    var id = 0;
-    for (var i = 0; i < c.length; i++) {
+const carrousel = (id) => {
+    let c = document.getElementById('carrousel').children;
+    let id = 0;
+    for (let i = 0; i < c.length; i++) {
         if (c[i].classList.contains('img-in')) {
             c[i].classList.remove('img-in');
             c[i].classList.add('img-out');
@@ -113,8 +113,8 @@ function carrousel(id) {
     c[id].classList.add('img-in');
 }
 
-function initCarrousel(id) {
-    var interval = setInterval(function () {
+const initCarrousel = (id) => {
+    let interval = setInterval( () => {
         carrousel(id);
     }, 1500);
 
@@ -122,7 +122,7 @@ function initCarrousel(id) {
 
 
 
-function addEvent(element, evnt, funct) {
+const addEvent = (element, evnt, funct) => {
     if (element.attachEvent)
         return element.attachEvent('on' + evnt, funct);
     else if (element.addEventListener) {
@@ -131,8 +131,8 @@ function addEvent(element, evnt, funct) {
 }
 
 
-function addEventClick(id, funct) {
-    var element = document.getElementById(id);
+const addEventClick = (id, funct) => {
+    let element = document.getElementById(id);
 
     if (typeof (element) != 'undefined' && element != null)
         if (element.attachEvent)
@@ -143,9 +143,8 @@ function addEventClick(id, funct) {
 }
 
 
-function addEventChange(id, funct) {
-    var element = document.getElementById(id);
-
+const addEventChange = (id, funct) => {
+    let element = document.getElementById(id);
     if (typeof (element) != 'undefined' && element != null)
         if (element.attachEvent)
             return element.attachEvent('onchange', funct);
@@ -155,9 +154,8 @@ function addEventChange(id, funct) {
 }
 
 
-
-function getValue(id) {
-    var element = document.getElementById(id);
+const getValue = (id) => {
+    let element = document.getElementById(id);
     if (element)
         return element.value;
     else
@@ -165,8 +163,8 @@ function getValue(id) {
 }
 
 
-function setValue(id, value) {
-    var element = document.getElementById(id);
+const setValue = (id, value) => {
+    let element = document.getElementById(id);
     if (element) {
         element.value = value;
         return true;
@@ -174,8 +172,8 @@ function setValue(id, value) {
         return false;
 }
 
-function setText(id, value) {
-    var element = document.getElementById(id);
+const setText = (id, value) => {
+    let element = document.getElementById(id);
     if (element) {
         element.textContent = value;
         return true;
@@ -184,15 +182,15 @@ function setText(id, value) {
 }
 
 //Usage :  document.getElementById("xTable").appendChild(createTableFromObj(
-function createTableFromObj(obj) {
+const createTableFromObj = (obj) => {
 
-    var table = document.createElement('table');
+    let table = document.createElement('table');
     table.classList.add("table");
-    var tableHead = document.createElement('thead');
-    var tableHeadRow = document.createElement('tr');
+    let tableHead = document.createElement('thead');
+    let tableHeadRow = document.createElement('tr');
     let keys = Object.keys(obj);
     console.log(keys.length);
-    for (var j = 0; j < keys.length; j++) {
+    for (let j = 0; j < keys.length; j++) {
         let th = document.createElement('th');
         th.appendChild(document.createTextNode(keys[j]));
 
@@ -200,12 +198,12 @@ function createTableFromObj(obj) {
     }
     tableHead.appendChild(tableHeadRow);
 
-    var tableBody = document.createElement('tbody');
+    let tableBody = document.createElement('tbody');
 
-    for (var i = 0; i < obj[keys[0]].length; i++) {
+    for (let i = 0; i < obj[keys[0]].length; i++) {
         let tr = document.createElement('tr');
 
-        for (var j = 0; j < keys.length; j++) {
+        for (let j = 0; j < keys.length; j++) {
             let td = document.createElement('td');
             td.appendChild(document.createTextNode(obj[keys[j]][i]));
             tr.appendChild(td);
@@ -218,9 +216,41 @@ function createTableFromObj(obj) {
 }
 
 
-function removeAllChildNodes(id) {
+//Usage :  document.getElementById("xDiv").appendChild(createTableFromArrObj(
+const createTableFromArrObj = (arr) => {
+    let table = document.createElement('table');
+    table.classList.add("table");
+    let tableHead = document.createElement('thead');
+    let tableHeadRow = document.createElement('tr');
+    let keys = Object.keys(arr[0]);
+    console.log(keys.length);
+    for (let j = 0; j < keys.length; j++) {
+        let th = document.createElement('th');
+        th.appendChild(document.createTextNode(keys[j]));
+        tableHeadRow.appendChild(th);
+    }
+    tableHead.appendChild(tableHeadRow);
+    let tableBody = document.createElement('tbody');
 
-    var element = document.getElementById(id);
+    for (let i = 0; i < arr.length; i++) {
+        let tr = document.createElement('tr');
+
+        for (let j = 0; j < keys.length; j++) {
+            let td = document.createElement('td');
+            td.appendChild(document.createTextNode(arr[i][keys[j]]));
+            tr.appendChild(td);
+        }
+        tableBody.appendChild(tr);
+    }
+    table.appendChild(tableHead);
+    table.appendChild(tableBody);
+    return table;
+}
+
+
+
+const removeAllChildNodes = (id) => {
+    let element = document.getElementById(id);
     if (element) {
         while (element.firstChild) {
             element.removeChild(element.firstChild);
@@ -231,7 +261,7 @@ function removeAllChildNodes(id) {
 }
 
 
-function delay(t) {
+const delay = (t) => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve('')

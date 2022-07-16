@@ -1948,10 +1948,57 @@ table,
 .table,
 .hoverable-table{
 
-
+    border-collapse: collapse;
+    margin: 10px 0;
+    width: 100%
 
 }
 
+.table td {
+    padding: .5em .5em
+}
+
+.table th {
+    font-size: .9em;
+    padding: .5em .5em
+}
+
+.table.colored thead {
+    border-bottom: solid 2px;
+    border-color: var(--main_color)
+}
+
+.table.colored tfoot {
+    border-top: solid 2px;
+    border-color: var(--main_color)
+}
+
+.table.colored tbody tr:nth-child(2n+1) {
+    background-color: rgba(36, 118, 255, .1)
+}
+
+table.bordered-table,
+table.bordered-table td,
+table.bordered-table th {
+    border: 1px solid var(--main_color)
+}
+
+table.bordered-table.alt,
+table.bordered-table.alt td,
+table.bordered-table.alt th {
+    border: 1px solid var(--main_color_alt)
+}
+
+table.hoverable-table tr:hover {
+    cursor: pointer;
+    background: var(--main_color_light)
+}
+
+table.hoverable-table td:hover {
+    background: var(--main_color);
+    color: var(--text_color_alt);
+    font-weight: 900
+}
 
 /**
 @media only screen and (min-width : 281px) and (max-width : 767px) {
